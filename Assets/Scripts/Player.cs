@@ -34,7 +34,7 @@ public class Player : MonoBehaviour {
 		var v = Input.GetAxisRaw("Vertical");
 
 		direction = new Vector2(h, v);
-		rb2d.velocity = direction * speed;
+		rb2d.velocity = direction.normalized * speed;
 
 		isWalking = (Mathf.Abs (h) + Mathf.Abs (v)) > 0;
 
@@ -43,7 +43,6 @@ public class Player : MonoBehaviour {
 		if (isWalking) {
 			anim.SetFloat ("X", h);
 			anim.SetFloat ("Y", v);
-
 
 		}
 	
